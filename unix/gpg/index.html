@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<!-- Academia (pandoc HTML5 template)
+     designer:     soimort
+     last updated: 2016-05-07 -->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="author" content="Mort Yao">
+    <meta name="dcterms.date" content="2016-04-07">
+    <title>GnuPG by Example</title>
+    <link rel="canonical" href="https://wiki.soimort.org/unix/gpg">
+    <style type="text/css">code { white-space: pre; }</style>
+    <link rel="stylesheet" href="//cdn.soimort.org/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="//cdn.soimort.org/mathsvg/latest/mathsvg.min.css">
+    <link rel="stylesheet" href="//cdn.soimort.org/fonts/latest/Latin-Modern-Roman.css">
+    <link rel="stylesheet" href="//cdn.soimort.org/fonts/latest/Latin-Modern-Mono.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/__/css/style.css">
+    <link rel="stylesheet" href="/__/css/pygments.css">
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+    <![endif]-->
+    <script src="//cdn.soimort.org/jk/20160504/jk.min.js"></script>
+    <script src="//cdn.soimort.org/mathsvg/latest/mathsvg.min.js"></script>
+    <script src="/__/js/jk-minibar.js"></script>
+    <link rel="icon" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/favicon.png">
+  </head>
+  <body>
+    <main><article>
+      <header>
+        <h1 class="title">GnuPG by Example</h1>
+        <address class="author">Mort Yao</address>
+        <!-- h3 class="date">2016-04-07</h3 -->
+      </header>
+      <nav id="TOC">
+<ul>
+<li><a href="#exchanging-keys"><span class="toc-section-number">1</span> Exchanging keys</a></li>
+<li><a href="#encrypting-and-decrypting-documents"><span class="toc-section-number">2</span> Encrypting and decrypting documents</a></li>
+<li><a href="#making-and-verifying-signatures"><span class="toc-section-number">3</span> Making and verifying signatures</a></li>
+<li><a href="#gpg-agent"><span class="toc-section-number">4</span> gpg-agent</a></li>
+</ul>
+      </nav>
+      <div id="content">
+<section id="exchanging-keys" class="level1">
+<h1><span class="header-section-number">1</span> Exchanging keys</h1>
+<p>Check for your own keys:</p>
+<pre><code>$ gpg --list-secret-keys</code></pre>
+<p>List all keys on your public keyring: (<code>~/.gnupg/pubring.kbx</code>)</p>
+<pre><code>$ gpg --list-keys</code></pre>
+<p>Print your public key: (in ASCII-armored format)</p>
+<pre><code>$ gpg --armor --export <span class="do">alice@example.com</span></code></pre>
+<p>Export your public key: (in binary format)</p>
+<pre><code>$ gpg --output <span class="do">alice.gpg</span> --export <span class="do">alice@example.com</span></code></pre>
+<p>Import a public key:</p>
+<pre><code>$ gpg --import <span class="do">bob.gpg</span></code></pre>
+</section>
+<section id="encrypting-and-decrypting-documents" class="level1">
+<h1><span class="header-section-number">2</span> Encrypting and decrypting documents</h1>
+<p>Encrypt a document with a public key:</p>
+<pre><code>$ gpg --output <span class="do">doc.gpg</span> --encrypt --recipient <span class="do">bob@example.com</span> <span class="do">doc</span></code></pre>
+<p>Encrypt a document with a symmetric cipher:</p>
+<pre><code>$ gpg --output <span class="do">doc.gpg</span> --symmetric <span class="do">doc</span></code></pre>
+<p>Decrypt a document:</p>
+<pre><code>$ gpg --output <span class="do">doc</span> --decrypt <span class="do">doc.gpg</span></code></pre>
+</section>
+<section id="making-and-verifying-signatures" class="level1">
+<h1><span class="header-section-number">3</span> Making and verifying signatures</h1>
+<p>Sign a document:</p>
+<pre><code>$ gpg --output <span class="do">doc.sig</span> --sign <span class="do">doc</span></code></pre>
+<p>Verify a signature and recover the encrypted document:</p>
+<pre><code>$ gpg --output <span class="do">doc</span> --decrypt <span class="do">doc.sig</span></code></pre>
+<p>Sign a document, but create an ASCII-armored signature:</p>
+<pre><code>$ gpg --clearsign <span class="do">doc</span></code></pre>
+<p>Sign a document, but create a detached signature:</p>
+<pre><code>$ gpg --output <span class="do">doc.sig</span> --detach-sig <span class="do">doc</span></code></pre>
+<p>Verify a detached signature with respect to the original document:</p>
+<pre><code>$ gpg --verify <span class="do">doc.sig</span> <span class="do">doc</span></code></pre>
+</section>
+<section id="gpg-agent" class="level1">
+<h1><span class="header-section-number">4</span> gpg-agent</h1>
+<p>The following line should be added to your <code>.bashrc</code> or <code>.zshrc, etc.</code>:</p>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="bu">export</span> <span class="va">GPG_TTY=$(</span><span class="ex">tty</span><span class="va">)</span></code></pre></div>
+<p>Reload <code>gpg-agent</code>:</p>
+<pre><code>$ gpg-connect-agent reloadagent /bye</code></pre>
+<hr />
+<p><strong>References</strong></p>
+<ul>
+<li>The Free Software Foundation. “The GNU Privacy Handbook.” Accessed April 7, 2016. <a href="https://www.gnupg.org/gph/en/manual/book1.html" class="uri">https://www.gnupg.org/gph/en/manual/book1.html</a></li>
+<li>“Using the GNU Privacy Guard: Invoking GPG-AGENT.” Accessed April 7, 2016. <a href="https://www.gnupg.org/documentation/manuals/gnupg/Invoking-GPG_002dAGENT.html" class="uri">https://www.gnupg.org/documentation/manuals/gnupg/Invoking-GPG_002dAGENT.html</a></li>
+</ul>
+</section>
+      </div>
+      <footer>
+        <!-- TO BE MODIFIED BY NEED -->
+        <a title="Keyboard shortcut: q"
+           href="..">
+          <i class="fa fa-angle-double-left" aria-hidden="true"></i>
+          <code>Parent</code>
+        </a> |
+        <a class="raw" accesskey="r"
+           title="Keyboard shortcut: R"
+           href="https://wiki.soimort.org/unix/gpg/src.md">
+          <i class="fa fa-code" aria-hidden="true"></i>
+          <code>Raw</code>
+        </a> |
+        <a class="history" accesskey="h"
+           title="Keyboard shortcut: H"
+           href="https://github.com/soimort/wiki/commits/gh-pages/unix/gpg/src.md">
+          <i class="fa fa-history" aria-hidden="true"></i>
+          <code>History</code>
+        </a> |
+        <a class="edit" accesskey="e"
+           title="Keyboard shortcut: E"
+           href="https://github.com/soimort/wiki/edit/gh-pages/unix/gpg/src.md">
+          <i class="fa fa-code-fork" aria-hidden="true"></i>
+          <code>Edit</code>
+        </a> |
+        <a title="Keyboard shortcut: p"
+           href="javascript:window.print();">
+          <i class="fa fa-print" aria-hidden="true"></i>
+          <code>Print</code>
+        </a> |
+        <a title="Keyboard shortcut: ."
+           href="https://wiki.soimort.org/unix/gpg">
+          <i class="fa fa-anchor" aria-hidden="true"></i>
+          <code>Permalink</code>
+        </a> |
+        Last updated: <span id="update-time">2016-04-07</span>
+      </footer>
+    </article></main>
+  </body>
+</html>

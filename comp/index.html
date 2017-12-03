@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<!-- Academia (pandoc HTML5 template)
+     designer:     soimort
+     last updated: 2016-05-07 -->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="author" content="Mort Yao">
+    <meta name="dcterms.date" content="2017-04-12">
+    <title>Theory of Computation</title>
+    <link rel="canonical" href="https://wiki.soimort.org/comp">
+    <style type="text/css">code { white-space: pre; }</style>
+    <link rel="stylesheet" href="//cdn.soimort.org/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="//cdn.soimort.org/mathsvg/latest/mathsvg.min.css">
+    <link rel="stylesheet" href="//cdn.soimort.org/fonts/latest/Latin-Modern-Roman.css">
+    <link rel="stylesheet" href="//cdn.soimort.org/fonts/latest/Latin-Modern-Mono.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/__/css/style.css">
+    <link rel="stylesheet" href="/__/css/pygments.css">
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+    <![endif]-->
+    <script src="//cdn.soimort.org/jk/20160504/jk.min.js"></script>
+    <script src="//cdn.soimort.org/mathsvg/latest/mathsvg.min.js"></script>
+    <script src="/__/js/jk-minibar.js"></script>
+    <link rel="icon" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/favicon.png">
+  </head>
+  <body>
+    <main><article>
+      <header>
+        <h1 class="title">Theory of Computation</h1>
+        <address class="author">Mort Yao</address>
+        <!-- h3 class="date">2017-04-12</h3 -->
+      </header>
+      <nav id="TOC">
+<ul>
+<li><a href="#formal-languages-and-automata"><span class="toc-section-number">1</span> Formal Languages and Automata</a></li>
+<li><a href="#computability"><span class="toc-section-number">2</span> Computability</a></li>
+<li><a href="#complexity"><span class="toc-section-number">3</span> Complexity</a></li>
+</ul>
+      </nav>
+      <div id="content">
+<p>Textbook:</p>
+<ul>
+<li>Michael Sipser. <strong><em>Introduction to the Theory of Computation, 3rd edition.</em></strong></li>
+</ul>
+<p>Supplementary reading:</p>
+<ul>
+<li>Neil Jones. <strong><em>Computability and Complexity: From a Programming Perspective.</em></strong> [<a href="http://www.diku.dk/~neil/comp2book2007/book-whole.pdf">PDF</a>]</li>
+</ul>
+<section id="formal-languages-and-automata" class="level1">
+<h1><span class="header-section-number">1</span> Formal Languages and Automata</h1>
+<ol>
+<li>Preliminaries
+<ul>
+<li><a href="language/">Basic formal language theory</a></li>
+</ul></li>
+<li><a href="language/finite/">Finite languages</a></li>
+<li><a href="language/regular/">Regular languages</a></li>
+<li><a href="language/context-free/">Context-free languages</a></li>
+<li>*Context-sensitive languages</li>
+</ol>
+</section>
+<section id="computability" class="level1">
+<h1><span class="header-section-number">2</span> Computability</h1>
+<ol>
+<li><a href="church-turing/">Church-Turing thesis</a>
+<ul>
+<li>Turing machines</li>
+<li>Turing completeness
+<ul>
+<li>Lambda calculus</li>
+<li>Combinatory logic</li>
+<li>Recursive function</li>
+<li>Cellular automaton</li>
+<li>Abstract rewriting system</li>
+</ul></li>
+</ul></li>
+<li><a href="algorithm/">Algorithm</a></li>
+<li><a href="decidability/">Decidability</a>
+<ul>
+<li>Decidable languages</li>
+<li>Undecidability</li>
+<li>Logical theories <i class="fa fa-link" aria-hidden="true"></i></li>
+</ul></li>
+<li><a href="reducibility/">Reducibility</a>
+<ul>
+<li>Many-one reductions</li>
+<li>Turing reductions, Turing equivalence and Turing degree</li>
+</ul></li>
+<li>Recursion theorem</li>
+<li>Algorithmic information theory <i class="fa fa-link" aria-hidden="true"></i></li>
+</ol>
+</section>
+<section id="complexity" class="level1">
+<h1><span class="header-section-number">3</span> Complexity</h1>
+<ol>
+<li><a href="complexity/">Overview</a></li>
+<li><a href="complexity/time/">Time complexity</a>
+<ul>
+<li>P and NP
+<ul>
+<li><a href="complexity/time/npc/">NP-completeness</a></li>
+</ul></li>
+</ul></li>
+<li>Space complexity
+<ul>
+<li>Savitch’s theorem</li>
+<li>PSPACE
+<ul>
+<li>PSPACE-completeness</li>
+</ul></li>
+<li>L and NL
+<ul>
+<li>NL-completeness</li>
+<li>NL=coNL</li>
+</ul></li>
+</ul></li>
+<li>Provable intractability
+<ul>
+<li>Hierarchy theorems</li>
+<li>Relativization</li>
+<li>Circuit complexity</li>
+</ul></li>
+<li>Advanced topics
+<ul>
+<li><a href="/algo/approximation/">Approximation algorithms</a> <i class="fa fa-link" aria-hidden="true"></i></li>
+<li><a href="/algo/randomization/">Probabilistic algorithms</a> <i class="fa fa-link" aria-hidden="true"></i>
+<ul>
+<li>BPP</li>
+</ul></li>
+<li>Alternation</li>
+<li>Interactive proof systems
+<ul>
+<li>IP=PSPACE</li>
+</ul></li>
+<li>Parallel computation
+<ul>
+<li>NC</li>
+<li>P-completeness</li>
+</ul></li>
+<li><a href="/crypto/">Cryptography</a> <i class="fa fa-link" aria-hidden="true"></i></li>
+</ul></li>
+</ol>
+</section>
+      </div>
+      <footer>
+        <!-- TO BE MODIFIED BY NEED -->
+        <a title="Keyboard shortcut: q"
+           href="..">
+          <i class="fa fa-angle-double-left" aria-hidden="true"></i>
+          <code>Parent</code>
+        </a> |
+        <a class="raw" accesskey="r"
+           title="Keyboard shortcut: R"
+           href="https://wiki.soimort.org/comp/src.md">
+          <i class="fa fa-code" aria-hidden="true"></i>
+          <code>Raw</code>
+        </a> |
+        <a class="history" accesskey="h"
+           title="Keyboard shortcut: H"
+           href="https://github.com/soimort/wiki/commits/gh-pages/comp/src.md">
+          <i class="fa fa-history" aria-hidden="true"></i>
+          <code>History</code>
+        </a> |
+        <a class="edit" accesskey="e"
+           title="Keyboard shortcut: E"
+           href="https://github.com/soimort/wiki/edit/gh-pages/comp/src.md">
+          <i class="fa fa-code-fork" aria-hidden="true"></i>
+          <code>Edit</code>
+        </a> |
+        <a title="Keyboard shortcut: p"
+           href="javascript:window.print();">
+          <i class="fa fa-print" aria-hidden="true"></i>
+          <code>Print</code>
+        </a> |
+        <a title="Keyboard shortcut: ."
+           href="https://wiki.soimort.org/comp">
+          <i class="fa fa-anchor" aria-hidden="true"></i>
+          <code>Permalink</code>
+        </a> |
+        Last updated: <span id="update-time">2017-04-12</span>
+      </footer>
+    </article></main>
+  </body>
+</html>

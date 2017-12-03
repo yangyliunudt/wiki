@@ -1,0 +1,32 @@
+---
+css: [
+
+  //cdn.soimort.org/normalize/5.0.0/normalize.min.css,
+  //cdn.soimort.org/mathsvg/latest/mathsvg.min.css,
+  //cdn.soimort.org/fonts/latest/Latin-Modern-Roman.css,
+  //cdn.soimort.org/fonts/latest/Latin-Modern-Mono.css,
+  //cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css,
+  /__/css/style.css,
+  /__/css/pygments.css,
+  ]
+highlighting-css: # no longer needed
+header-includes: [
+  <script src="//cdn.soimort.org/jk/20160504/jk.min.js"></script>,
+  <script src="//cdn.soimort.org/mathsvg/latest/mathsvg.min.js"></script>,
+  <script src="/__/js/jk-minibar.js"></script>,
+  <link rel="icon" href="/favicon.png">,
+  <link rel="apple-touch-icon" href="/favicon.png">,
+  ]
+filters: [
+  #qed.hs,
+  ]
+raw-options: [
+  --number-sections,
+  --section-divs,
+  --toc,
+  --toc-depth=1,
+  --mathjax,
+  ]
+input-format: markdown # produce typographically correct output
+output-format: html5
+---
