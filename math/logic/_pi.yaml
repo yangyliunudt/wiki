@@ -1,6 +1,0 @@
----
-include-before: |
-  <p hidden>
-  $$\def\textsc#1{\textsf{#1}}$$
-  </p>
----

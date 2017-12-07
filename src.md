@@ -17,7 +17,7 @@ It is still woefully incomplete, but it shouldn't always be. I keep learning thi
 <br> --- Kurt Vonnegut
 </div>
 
-* helloo
+* hello
 
 * [Common mathematical notation](/rosetta/)
 
